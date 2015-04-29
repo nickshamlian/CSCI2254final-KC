@@ -10,8 +10,8 @@ Author: Shamlian
 Version: 0.1
 Author URI: nope
 */
-global $csci2254craft_db_version;
-$csci2254craft_db_version = "1.0";
+global $KingofCraft_db_version;
+$KingofCraft_db_version = "1.0";
 global $debug;
 $debug = 0;
 
@@ -22,10 +22,10 @@ $debug = 0;
 function create_beerTable() {
 
   global $wpdb;
-  global $csci2254craft_db_version;
+  global $KingofCraft_db_version;
   require_once( ABSPATH . 'wp-admin/includes/upgrade.php');
   
-  $table_name = $wpdb->prefix . "csci2254beer";
+  $table_name = $wpdb->prefix . "KC_beer";
   $sql = "
 	CREATE TABLE IF NOT EXISTS $table_name (
 		beerID 	    int not null auto_increment,
@@ -38,28 +38,28 @@ function create_beerTable() {
 		PRIMARY KEY (beerID)
 	) engine = InnoDB;";
 	dbDelta($sql);
-	add_option("csci2254craft_db_version", "$csci2254craft_db_version);
+	add_option("KingofCraft_db_version", "$KingofCraft_db_version);
 }
 
-register_activation_hook( __FILE__, 'CSCI2254KC_install');
+register_activation_hook( __FILE__, 'KingofCraft_install');
 
 /** 
- * csci2254_craft_deactivate() - cleans up when the plugin is deactived. 
+ * KingofCraft_deactivate() - cleans up when the plugin is deactived. 
  * delete database tables.
  *
  * Table deletion is commented out here because I probably don't want to get
  * rid of all the stamps.  But maybe someday I would?
  **/
  
-function csci2254craft_deactivate()
+function KingofCraft_deactivate()
 {
     global $wpdb; 
     
-	$table_name = $wpdb->prefix . "csci2254beer";    
+	$table_name = $wpdb->prefix . "KC_beer";    
     $sql = "DROP TABLE IF EXISTS $table_name;";
     $wpdb->query( $sql );
 }
-register_deactivation_hook( __FILE__, 'csci2254stampclub_deactivate');
+register_deactivation_hook( __FILE__, 'KingofCraft_deactivate');
 
 /*Support for beer enthusiats */
 

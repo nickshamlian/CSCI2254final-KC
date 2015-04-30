@@ -31,13 +31,22 @@ function KingofCraft_display_addbeer(){
   <form method="post">
     
       <label for="beername">Name:</label>
-      <input type="text" name="beername" id="beername" class="input"/>
+      <input type="text" name="beername" id="beername" class="input"/><br>
+      
+      <label for="beerType">Type:</label>
+      <?php createmenu("beerType", array("Lager", "Wheat Beer", "Mild Ale", "Stout", "Pale Ale", "Lambic")); ?><br>
       
       <label for="beerABV">ABV (%):</label>
-      <input type="text" name="beerABV" id="beerABV" class="input/>
+      <input type="text" name="beerABV" id="beerABV" class="input"/><br>
+      
+      <label for="brewery">Brewed by:</label>
+      <input type="text" name="brewery" id="brewery" class="input"/><br>
+      
+      <input for="breweryLoc">Brewery Location:</label>
+      <input type="text" name="breweryLoc" id="breweryLoc" class="input"/><br>
     
       <label for="beerComment">Description:</label>
-      <textarea rows="4" cols="50" name="beerComment" id="beerComment"></textarea>
+      <textarea rows="4" cols="50" name="beerComment" id="beerComment"></textarea><br>
       
       <input type="submit" name="addbeer" value="Add Beer!"/>
   </form>
@@ -50,15 +59,21 @@ function KingofCraft_handle_addstamp(){
   global $wpdb;
   
   $beername = $_POST['beername'];
+  $beerType = $_POST['beerType'];
   $beerABV = $_POST['beerABV'];
+  $brewery = $_POST['brewery'];
+  $breweryLoc = $_POST['breweryLoc'];
   $beerComment = $_POST['beerComment'];
   
   $table_name = $wpdb->prefix . "KC_beers";
   $wpdb->query($wpdb->prepare(
     "INSERT INTO $table_name
-    (beername, beerABV, beerComment) values (%s, %f, %s)",
+    (beername, beerType, beerABV, brewery, breweryLoc, beerComment) values (%s, %s, %f, %s, %s, %s)",
     $beername,
+    $beerType,
     $beerABV,
+    $brewery,
+    $breweryLoc,
     $beerComment
   ));
 }

@@ -77,3 +77,11 @@ function KingofCraft_handle_addstamp(){
     $beerComment
   ));
 }
+
+function createmenu($name, $array) {
+ echo "<select name=\"$name\">";
+ foreach($option as $opt) {
+    echo "<option value=\"$opt\">$opt</option>";
+ }
+ echo "</select>";
+}

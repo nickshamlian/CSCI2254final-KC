@@ -15,9 +15,7 @@ $KingofCraft_db_version = "1.0";
 global $debug;
 $debug = 0;
 
-/**
-* create_beerTable()
-**/
+create_beerTable();
 
 function create_beerTable() {
   global $wpdb;
@@ -40,8 +38,11 @@ function create_beerTable() {
 	add_option("KingofCraft_db_version", $KingofCraft_db_version);
 }
 
+register_activation_hook(__FILE__, 'create_beerTable');
+
 /*Support for beer enthusiats */
 include 'KingofCraft_addbeer.php';
+
 /**
 * Shortcode functions
 **/

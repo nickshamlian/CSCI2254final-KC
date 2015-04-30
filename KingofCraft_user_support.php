@@ -7,6 +7,9 @@ function KingofCraft_register_form() {
   <h3>Register for King of Craft!</h3>
   <p>
   
+    <label for="firstname">First name</label>
+    <input type="text" name="firstname" id="firstname" class="input" size="25"/>
+    
     <label for="username">Username</label>
     <input type="text" name="username" id="username" class="input" size="25"/>
     
@@ -38,4 +41,10 @@ function get_user_pw($current_user){
   $single = true;
   $user_pw = get_user_meta($current_user->pw, $key, $single);
   return($user_pw);
+}
+
+function get_firstname($current_user){
+  $key = 'firstname';
+  $single = true;
+  $username = get_user_meta($current_user->firstname, $key, $single)
 }

@@ -20,7 +20,7 @@ function KingofCraft_addbeer(){
   KingofCraft_display_addbeer();
 }
 
-add_shortcode('KingofCraft_addstamp', 'KingofCraft_addstamp');
+add_shortcode('KingofCraft_addbeer', 'KingofCraft_addbeer');
 
 function KingofCraft_display_addbeer(){
 ?>

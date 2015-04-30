@@ -29,25 +29,39 @@ function KingofCraft_display_addbeer(){
   
   <fieldset>
   <form method="post">
-    
-      <label for="beername">Name:</label>
-      <input type="text" name="beername" id="beername" class="input"/><br>
+	
+      <table>
+	<tr>	
+		<td><label for="beername">Name:</label></td>
+      		<td><input type="text" name="beername" id="beername" class="input"/></td>
+	</tr>
+
+	<tr>
+		<td><label for="beerType">Type:</label></td>
+		<td><?php createmenu("beerType", array("Lager", "Wheat Beer", "Mild Ale", "Stout", "Pale Ale", "Lambic")); ?></td>
+	</tr>
       
-      <label for="beerType">Type:</label>
-      <?php createmenu("beerType", array("Lager", "Wheat Beer", "Mild Ale", "Stout", "Pale Ale", "Lambic")); ?><br>
-      
-      <label for="beerABV">ABV (%):</label>
-      <input type="text" name="beerABV" id="beerABV" class="input"/><br>
-      
-      <label for="brewery">Brewed by:</label>
-      <input type="text" name="brewery" id="brewery" class="input"/><br>
-      
-      <input for="breweryLoc">Brewery Location:</label>
-      <input type="text" name="breweryLoc" id="breweryLoc" class="input"/><br>
-    
-      <label for="beerComment">Description:</label>
-      <textarea rows="4" cols="50" name="beerComment" id="beerComment"></textarea><br>
-      
+	<tr>
+		<td><label for="beerABV">ABV (%):</label></td>
+		<td><input type="text" name="beerABV" id="beerABV" class="input"/></td>
+	</tr>
+
+	<tr>
+		<td><label for="brewery">Brewed by:</label></td>
+		<td><input type="text" name="brewery" id="brewery" class="input"/></td>
+	</tr>
+
+	<tr>
+ 		<td><label for="breweryLoc">Brewery Location:</label></td>
+	        <td><input type="text" name="breweryLoc" id="breweryLoc" class="input"/></td>
+	</tr>
+
+	<tr>
+		<td><label for="beerComment">Description:</label></td>
+		<td><textarea rows="4" cols="50" name="beerComment" id="beerComment"></textarea></td>
+	</tr>
+
+      </table>	      
       <input type="submit" name="addbeer" value="Add Beer!"/>
   </form>
   </fieldset>
@@ -55,7 +69,7 @@ function KingofCraft_display_addbeer(){
 <?php
 }
 
-function KingofCraft_handle_addstamp(){
+function KingofCraft_handle_addbeer(){
   global $wpdb;
   
   $beername = $_POST['beername'];
@@ -78,10 +92,10 @@ function KingofCraft_handle_addstamp(){
   ));
 }
 
-function createmenu($name, $array) {
- echo "<select name=\"$name\">";
+function createmenu($name, $option) {
+ echo "<select name='$name'>";
  foreach($option as $opt) {
-    echo "<option value=\"$opt\">$opt</option>";
+    echo "<option value='$opt'>$opt</option>";
  }
  echo "</select>";
 }

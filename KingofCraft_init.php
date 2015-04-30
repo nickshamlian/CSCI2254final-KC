@@ -33,7 +33,7 @@ function create_beerTable() {
 		brewery_location	varchar(80),
 		beer_description  varchar(250),
 		PRIMARY KEY (beerID)
-	) engine = InnoDB;";
+	) engine = InnoDB CHARACTER SET=utf8";
 	$wpdb->query($sql);
 	add_option("KingofCraft_db_version", $KingofCraft_db_version);
 }

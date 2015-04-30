@@ -41,16 +41,6 @@ function create_beerTable() {
 	add_option("KingofCraft_db_version", "$KingofCraft_db_version);
 }
 
-register_activation_hook( __FILE__, 'KingofCraft_install');
-
-/** 
- * KingofCraft_deactivate() - cleans up when the plugin is deactived. 
- * delete database tables.
- *
- * Table deletion is commented out here because I probably don't want to get
- * rid of all the stamps.  But maybe someday I would?
- **/
- 
 function KingofCraft_deactivate() {
     global $wpdb; 
     

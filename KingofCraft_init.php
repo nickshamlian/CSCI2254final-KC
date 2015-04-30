@@ -40,13 +40,20 @@ function create_beerTable() {
 
 register_activation_hook(__FILE__, 'create_beerTable');
 
+function KingofCraft_deactivate() {
+	global $wpdb;
+	
+	$table_name = $wpdb->prefix . "KC_beers";
+	$sql = "DROP TABLE IF EXISTS $table_name;";
+	$wpdb->query($sql);
+}
+
 /*Support for beer enthusiats */
 include 'KingofCraft_addbeer.php';
 
 /**
 * Shortcode functions
 **/
-
 include 'KingofCraft_user_support.php';
 add_action('register_form', 'KingofCraft_register_form');
 

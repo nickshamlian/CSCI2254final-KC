@@ -50,6 +50,7 @@ function KingofCraft_deactivate() {
 
 /*Support for beer enthusiats */
 include 'KingofCraft_addbeer.php';
+include 'KingofCraft_listbeers.php';
 
 /**
 * Shortcode functions

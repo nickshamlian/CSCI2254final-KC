@@ -20,12 +20,11 @@ $debug = 0;
 **/
 
 function create_beerTable() {
-
   global $wpdb;
   global $KingofCraft_db_version;
   require_once( ABSPATH . 'wp-admin/includes/upgrade.php');
   
-  $table_name = $wpdb->prefix . "KC_beer";
+  $table_name = $wpdb->prefix . "KC_beer";    
   $sql = "
 	CREATE TABLE IF NOT EXISTS $table_name (
 		beerID 	    int not null auto_increment,
@@ -37,29 +36,20 @@ function create_beerTable() {
 		beer_description  varchar(250),
 		PRIMARY KEY (beerID)
 	) engine = InnoDB;";
-	dbDelta($sql);
+	$wpdb->query($sql);
 	add_option("KingofCraft_db_version", "$KingofCraft_db_version);
 }
 
-function KingofCraft_deactivate() {
-    global $wpdb; 
-    
-	$table_name = $wpdb->prefix . "KC_beer";    
-    $sql = "DROP TABLE IF EXISTS $table_name;";
-    $wpdb->query( $sql );
-}
-register_deactivation_hook( __FILE__, 'KingofCraft_deactivate');
-
 /*Support for beer enthusiats */
-
+include 'KingofCraft_addbeer.php';
 
 
 /**
 * Shortcode functions
 **/
 
-include 'csci2254craft_user_support.php';
-add_action('register_form', 'csci2254craft_register_form');
+include 'KingofCraft_user_support.php';
+add_action('register_form', 'KingofCraft_register_form');
 
 function my_login_redirect($redirect_to, $request, $user) {
   global $user;

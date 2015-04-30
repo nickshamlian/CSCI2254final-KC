@@ -37,19 +37,19 @@ function create_beerTable() {
 		PRIMARY KEY (beerID)
 	) engine = InnoDB;";
 	$wpdb->query($sql);
-	add_option("KingofCraft_db_version", "$KingofCraft_db_version);
+	add_option("KingofCraft_db_version", $KingofCraft_db_version);
 }
 
 /*Support for beer enthusiats */
 include 'KingofCraft_addbeer.php';
-
-
 /**
 * Shortcode functions
 **/
 
 include 'KingofCraft_user_support.php';
 add_action('register_form', 'KingofCraft_register_form');
+
+add_filter('login_redirect', 'my_login_redirect', 10, 3);
 
 function my_login_redirect($redirect_to, $request, $user) {
   global $user;
@@ -60,5 +60,3 @@ function my_login_redirect($redirect_to, $request, $user) {
   }
   return home_url();
 }
-
-add_filter('login_redirect', 'my_login_redirect', 10, 3);

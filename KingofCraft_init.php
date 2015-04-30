@@ -22,7 +22,7 @@ function create_beerTable() {
   global $KingofCraft_db_version;
   require_once( ABSPATH . 'wp-admin/includes/upgrade.php');
   
-  $table_name = $wpdb->prefix . "KC_beer";    
+  $table_name = $wpdb->prefix . "kc_beer";    
   $sql = "
 	CREATE TABLE IF NOT EXISTS $table_name (
 		beerID 	    int not null auto_increment,
@@ -43,7 +43,7 @@ register_activation_hook(__FILE__, 'create_beerTable');
 function KingofCraft_deactivate() {
 	global $wpdb;
 	
-	$table_name = $wpdb->prefix . "KC_beers";
+	$table_name = $wpdb->prefix . "kc_beers";
 	$sql = "DROP TABLE IF EXISTS $table_name;";
 	$wpdb->query($sql);
 }

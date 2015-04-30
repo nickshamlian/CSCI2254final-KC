@@ -6,7 +6,7 @@ function KingofCraft_addbeer(){
   
   if(! is_user_logged_in()) {
     echo "Sorry you must be logged in to add a beer.<br>
-      <a href=" . wp_login_url() . "title="Login>Log in</a>";
+      <a href=" . wp_login_url() . title='Login'>Log in</a>";
     return;
   }
   

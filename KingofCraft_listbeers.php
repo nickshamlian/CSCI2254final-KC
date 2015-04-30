@@ -5,12 +5,13 @@ function KingofCraft_listBeers() {
   global $wpdb;
   $table_name = $wpdb->prefix . "KC_beers";
   $query = "SELECT * FROM $table_name";
-  $allstamps = $wpdb->get_results($query);
+  $allbeers = $wpdb->get_results($query);
   
   if($allbeers){
     KingofCraft_showBeers($allbeers);
-  } else {
-    echo "<h3>No beers yet, add some!</h3>;
+  }
+  else {
+    echo "<h3>No beers yet, add some!</h3>";
   }
 }
 

@@ -51,8 +51,7 @@ register_activation_hook( __FILE__, 'KingofCraft_install');
  * rid of all the stamps.  But maybe someday I would?
  **/
  
-function KingofCraft_deactivate()
-{
+function KingofCraft_deactivate() {
     global $wpdb; 
     
 	$table_name = $wpdb->prefix . "KC_beer";    

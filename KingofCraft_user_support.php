@@ -33,7 +33,7 @@ function KingofCraft_user_register($user_id) {
 function get_username($current_user){
   $key = 'username';
   $single = true;
-  $username = get_user_meta($current_user->username, $key, $single)
+  $username = get_user_meta($current_user->username, $key, $single);
 }
 
 function get_user_pw($current_user){
@@ -46,5 +46,5 @@ function get_user_pw($current_user){
 function get_firstname($current_user){
   $key = 'firstname';
   $single = true;
-  $username = get_user_meta($current_user->firstname, $key, $single)
+  $username = get_user_meta($current_user->firstname, $key, $single);
 }

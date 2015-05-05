@@ -3,7 +3,7 @@
 function KingofCraft_listBeers() {
   
   global $wpdb;
-  $table_name = $wpdb->prefix . "KC_beers";
+  $table_name = $wpdb->prefix . "kc_beer";
   $query = "SELECT * FROM $table_name";
   $allbeers = $wpdb->get_results($query);
   
@@ -15,7 +15,7 @@ function KingofCraft_listBeers() {
   }
 }
 
-add_shortcode('KingofCraft_showBeers', 'KingofCraft_listBeers');
+add_shortcode('KingofCraft_listBeers', 'KingofCraft_listBeers');
 
 function KingofCraft_showBeers($allbeers){
   create_beer_table_header();

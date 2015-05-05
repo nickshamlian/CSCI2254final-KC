@@ -79,7 +79,7 @@ function KingofCraft_handle_addbeer(){
   $breweryLoc = $_POST['breweryLoc'];
   $beerComment = $_POST['beerComment'];
   
-  $table_name = $wpdb->prefix . "KC_beers";
+  $table_name = $wpdb->prefix . "kc_beer";
   $wpdb->query($wpdb->prepare(
     "INSERT INTO $table_name
     (beername, beerType, beerABV, brewery, breweryLoc, beerComment) values (%s, %s, %f, %s, %s, %s)",

@@ -25,12 +25,13 @@ function create_beerTable() {
   $table_name = $wpdb->prefix . "kc_beer";    
   $sql = "
 	CREATE TABLE IF NOT EXISTS $table_name (
-		beerID 	    int not null auto_increment,
-		beername 	  varchar(40) not null,
+		beerID 	    		int not null auto_increment,
+		beername 	  	varchar(40) not null,
 		beertype 		varchar(20) not null,
-		beerABV 		decimal(3,2),
+		beerABV 		decimal(3,2) not null,
 		brewery 		varchar(40) not null,
-		beer_description  varchar(250),
+		beer_image		varchar(150), 
+		beer_description  	varchar(250),
 		PRIMARY KEY (beerID)
 	) engine = InnoDB CHARACTER SET=utf8";
 	$wpdb->query($sql);

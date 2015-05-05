@@ -30,7 +30,6 @@ function create_beerTable() {
 		beertype 		varchar(20) not null,
 		beerABV 		decimal(3,2),
 		brewery 		varchar(40) not null,
-		brewery_location	varchar(80),
 		beer_description  varchar(250),
 		PRIMARY KEY (beerID)
 	) engine = InnoDB CHARACTER SET=utf8";

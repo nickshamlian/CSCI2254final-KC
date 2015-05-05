@@ -10,14 +10,21 @@ function KingofCraft_register_form() {
     <label for="firstname">First name</label>
     <input type="text" name="firstname" id="firstname" class="input" size="25"/>
     
-    <label for="username">Username</label>
-    <input type="text" name="username" id="username" class="input" size="25"/>
-    
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password" class="input" size="25"/>
+    <label for="yog">Membership Type</label>
+    <?php createmenu("memtype" , array("member", "enthusiast")); ?>
     
   </p>
+  
 <?php
+}
+
+function createmenu($name, $option) {
+  
+  echo "<select name = '$name'>";
+  foreach ($option as $opt) {
+    echo "<option value = '$opt'>$opt</option>";
+  }
+  echo "</select>";
 }
 
 add_filter('registration_errors', 'KingofCraft_registration_validate', 10, 3);
@@ -34,27 +41,28 @@ add_action('user_register', 'KingofCraft_user_register');
 
 function KingofCraft_user_register($user_id) {
   if(isset($_POST['netID'])) {
-    $pw=sha1($_POST['password']);
-    update_user_meta($user_id, 'username', $_POST['username']);
-    update_user_meta($user_id, 'password', $pw);
+    update_user_meta($user_id, 'first_name', $_POST['firstname']);
+    update_user_meta($user_id, 'KingofCraft_role', $_POST['memtype']);
   }
 }
 
-function get_username($current_user){
-  $key = 'username';
+function get_current_user_name($current_user){
+  $key = 'first_name';
   $single = true;
-  $username = get_user_meta($current_user->username, $key, $single);
+  $firstname = get_user_meta($current_user->ID, $key, $single);
+  return ($firstname);
 }
 
-function get_user_pw($current_user){
-  $key = 'password';
+function is_user_guest($current_user) {
+  $key = 'KingofCraft_role';
   $single = true;
-  $user_pw = get_user_meta($current_user->pw, $key, $single);
-  return($user_pw);
+  $user_role = get_user_meta($current_user->ID, $key, $single);
+  return($user_role == 'guest');
 }
 
-function get_firstname($current_user){
-  $key = 'firstname';
+function is_user_member($current_user) {
+  $key = 'KingofCraft_role';
   $single = true;
-  $username = get_user_meta($current_user->firstname, $key, $single);
+  $user_role = get_user_meta($current_user->ID, $key, $single);
+  return($user_role == 'member');
 }

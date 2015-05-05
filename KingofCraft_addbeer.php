@@ -5,7 +5,7 @@ function KingofCraft_addbeer(){
   if ($debug) echo "[KingofCraft_addbeer]";
   
   if(! is_user_logged_in()) {
-    echo "Sorry you must be logged in to add a beer.<br>
+    echo "Sorry you must be logged in as a member to add a beer.<br>
       <a href=". wp_login_url() . " title='Login'>Log in</a>";
     return;
   }
@@ -15,7 +15,13 @@ function KingofCraft_addbeer(){
   }
   
   $current_user = wp_get_current_user();
-  $username = get_username($current_user);
+  $user_role = is_user_member($current_user);
+  
+  if($user_role == 'guest') {
+    echo "Sorry you must be logged in as a member to add a beer.<br>
+      <a href=". wp_login_url() . " title='Login'>Log in</a>";
+    return;
+  }
   
   KingofCraft_display_addbeer();
 }
@@ -76,18 +82,18 @@ function KingofCraft_handle_addbeer(){
   $beerType = $_POST['beerType'];
   $beerABV = $_POST['beerABV'];
   $brewery = $_POST['brewery'];
-  $breweryLoc = $_POST['breweryLoc'];
   $beerComment = $_POST['beerComment'];
+  $beer_image = $_POST['beer_image'];
   
   $table_name = $wpdb->prefix . "kc_beer";
   $wpdb->query($wpdb->prepare(
     "INSERT INTO $table_name
-    (beername, beerType, beerABV, brewery, breweryLoc, beerComment) values (%s, %s, %f, %s, %s, %s)",
+    (beername, beerType, beerABV, brewery, beer_image, beerComment) values (%s, %s, %f, %s, %s, %s)",
     $beername,
     $beerType,
     $beerABV,
     $brewery,
-    $breweryLoc,
+    $beer_image,
     $beerComment
   ));
 }

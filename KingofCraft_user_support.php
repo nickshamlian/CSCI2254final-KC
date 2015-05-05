@@ -25,7 +25,7 @@ add_filter('registration_errors', 'KingofCraft_registration_validate', 10, 3);
 function KingofCraft_registration_validate($errors, $sanitized_user_login, $user_email) {
   
   if (! isset($_POST['firstname']) || trim($_POST['firstname'] == false)) {
-    $errors->add('firstname_error', __('<strong>ERROR</strong>: You must include a first name.')__);
+    $errors->add('firstname_error', '<strong>ERROR</strong>: You must include a first name.');
   }
   return $errors;
 }

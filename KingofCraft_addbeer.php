@@ -52,13 +52,13 @@ function KingofCraft_display_addbeer(){
 	</tr>
 
 	<tr>
- 		<td><label for="breweryLoc">Brewery Location:</label></td>
-	        <td><input type="text" name="breweryLoc" id="breweryLoc" class="input"/></td>
-	</tr>
-
-	<tr>
 		<td><label for="beerComment">Description:</label></td>
 		<td><textarea rows="4" cols="50" name="beerComment" id="beerComment"></textarea></td>
+	</tr>
+	
+	<tr>
+		<td><label for="beer_image">Beer ImageURL:</label></td>
+		<td><input type="text" name="beer_image" id="beer_image" class="input"/></td>
 	</tr>
 
       </table>	      

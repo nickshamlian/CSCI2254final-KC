@@ -50,7 +50,6 @@ function create_beer_table_row($beer) {
 ?>
 
   <tr class="beertablerow">
-    <td><img src='$beer->beer_image'></td>
     <td><?php echo $beer->beername . " <br>" .
                    $beer->beertype . " <br>" .
                    $beer->beerABV . "% <br>" .

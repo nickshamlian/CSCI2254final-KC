@@ -17,31 +17,12 @@ add_shortcode('KingofCraft_6pack_options', 'KingofCraft_6pack_options');
 function KingofCraft_showOptions($allbeers){
   create_beer_table_header();
   foreach($allbeers as $beer) {
-    create_beer_table_row($beer);
+    create_6pack_options_row($beer);
   }
   create_beer_table_footer();
 }
-function create_beer_table_header() {
-?>
 
-  <div id="beererror"></div>
-  <table class="beertable">
-    <tr class="beertablerow">
-      <th>Picture</th>
-      <th>Beer Information</th>
-      <th>Description</th>
-    </tr>
-
-<?php
-}
-function create_beer_table_footer() {
-?>
-
-  </table>
-
-<?php
-}
-function create_beer_table_row($beer) {
+function create_6pack_options_row($beer) {
 ?>
 
   <tr class="beertablerow">
@@ -57,7 +38,7 @@ function create_beer_table_row($beer) {
   </tr>
   <tr>
     <form method="post">
-    <input type="submit" name="submit value="Add to your pack!">
+    <input type="submit" name="submit" value="Add to your pack!">
   </tr>
 
 <?php

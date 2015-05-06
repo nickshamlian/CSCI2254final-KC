@@ -16,5 +16,4 @@ function KingofCraft_guest() {
   echo "Hello $username. Welcome to King of Craft: <br><br>
     Here is a list of all the beers in your collection...";
 
-  KingofCraft_
 }

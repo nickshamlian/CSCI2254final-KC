@@ -6,12 +6,12 @@ function initialize() {
 
   map = new google.maps.Map(document.getElementById('map-canvas'), {
     center: pyrmont,
-    zoom: 15
+    zoom: 10
   });
 
   var request = {
     location: pyrmont,
-    radius: 500,
+    radius: 2000,
     query: 'brewery'
   };
 

@@ -25,7 +25,7 @@ add_shortcode('KingofCraft_addbeer', 'KingofCraft_addbeer');
 
 function KingofCraft_display_addbeer(){
 ?>
-  <br><br>Add a beer<br><br>
+  <br><br>This page is used to add your favorite beers to our database. Simply fill out the form to add a beer!<br><br>
   <div style="font-family:sans-serif; background-color: grey; margin-left: 30px;">
   
   <fieldset>

@@ -55,10 +55,9 @@ function create_beer_table_row($beer) {
                    $beer->beerType . " <br>" .
                    $beer->beerABV . " <br>" .
                    $beer->brewery . " <br>" . 
-                   $beer->breweryLoc;
     ?></td>
     
-    <td><?php echo $beer->beerComment;?></td>
+    <td><?php echo $beer->beer_description;?></td>
   </tr>
   
 <?php

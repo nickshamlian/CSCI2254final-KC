@@ -8,7 +8,7 @@ function KingofCraft_member() {
   $username = get_current_user_name($current_user);
   echo "Hello $username, Here are all of the 6-Packs that you have created!"
   
-  KingofCraft_addtoPack();
+  KingofCraft_addtoPack($current_user);
 }
 
 add_shortcode('KingofCraft_member', 'KingofCraft_member');

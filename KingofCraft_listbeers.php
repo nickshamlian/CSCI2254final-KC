@@ -20,7 +20,6 @@ add_shortcode('KingofCraft_listBeers', 'KingofCraft_listBeers');
 function KingofCraft_showBeers($allbeers){
   create_beer_table_header();
   foreach($allbeers as $beer) {
-    //echo "<pre>" . print_r($beer) . "</pre";
     create_beer_table_row($beer);
   }
   create_beer_table_footer();
@@ -53,7 +52,7 @@ function create_beer_table_row($beer) {
   <tr class="beertablerow">
     <td><?php echo $beer->beername . " <br>" .
                    $beer->beertype . " <br>" .
-                   $beer->beerABV . " <br>" .
+                   $beer->beerABV . "% <br>" .
                    $beer->brewery 
     ?></td>
     

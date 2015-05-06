@@ -54,7 +54,7 @@ function create_beer_table_row($beer) {
     <td><?php echo $beer->beername . " <br>" .
                    $beer->beerType . " <br>" .
                    $beer->beerABV . " <br>" .
-                   $beer->brewery . " <br>" . 
+                   $beer->brewery 
     ?></td>
     
     <td><?php echo $beer->beer_description;?></td>

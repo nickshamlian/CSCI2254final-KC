@@ -1,34 +1,12 @@
- <!DOCTYPE html>
-<html>
-  <head>
-    <title>Place searches</title>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
-    <style>
-      html, body, #map-canvas {
-        height: 99%;
-        margin: 0px;
-        padding: 0px
-      }
-    </style>
+<?php
 
-  </head>
-  <body>
-  <div id="map-canvas"></div>
-  </body>
-</html>
+function getBars() {
+?>
 
-  function getBars() {
-    
-  <?php
-  
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
-    <script type = "text/javascript" src = "KingofCraft_bar_script.js"></script>
-    
-  ?>
-  
-  }
-  
-  add_shortcode('KingofCraft_getBars', 'getBars');
-  
-  
+    <script src="KingofCraft_bar_script.js"></script>
+
+<?php
+}
+
+add_shortcode('KingofCraft_getBars', 'getBars');

@@ -1,5 +1,5 @@
 <?php
-function KingofCraft_6_pack_options() {
+function KingofCraft_6pack_options() {
   global $wpdb;
   $table_name = $wpdb->prefix . "kc_beer";
   $query = "SELECT * FROM $table_name";

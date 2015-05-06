@@ -51,7 +51,8 @@ function KingofCraft_deactivate() {
 /*Support for beer enthusiats */
 include 'KingofCraft_addbeer.php';
 include 'KingofCraft_listbeers.php';
-include 'KingofCraft_getLocals.php';
+include 'KingofCraft_getBars.php';
+include 'KingofCraft_getBrewery.php';
 
 
 /**

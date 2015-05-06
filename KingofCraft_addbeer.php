@@ -74,7 +74,7 @@ function KingofCraft_handle_addbeer(){
   global $wpdb;
   
   $beername = $_POST['beername'];
-  $beerType = $_POST['beertype'];
+  $beertype = $_POST['beertype'];
   $beerABV = $_POST['beerABV'];
   $brewery = $_POST['brewery'];
   $beer_description = $_POST['beer_description'];

@@ -10,9 +10,6 @@ function KingofCraft_register_form() {
     <label for="firstname">First name</label>
     <input type="text" name="firstname" id="firstname" class="input" size="25"/>
     
-    <label for="yog">Membership Type</label>
-    <?php createmenu("memtype" , array("member", "enthusiast")); ?>
-    
   </p>
   
 <?php
@@ -42,18 +39,4 @@ function get_current_user_name($current_user){
   $single = true;
   $firstname = get_user_meta($current_user->ID, $key, $single);
   return ($firstname);
-}
-
-function is_user_guest($current_user) {
-  $key = 'KingofCraft_role';
-  $single = true;
-  $user_role = get_user_meta($current_user->ID, $key, $single);
-  return($user_role == 'guest');
-}
-
-function is_user_member($current_user) {
-  $key = 'KingofCraft_role';
-  $single = true;
-  $user_role = get_user_meta($current_user->ID, $key, $single);
-  return($user_role == 'member');
 }

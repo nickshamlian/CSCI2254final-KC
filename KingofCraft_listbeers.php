@@ -11,7 +11,7 @@ function KingofCraft_listBeers() {
     KingofCraft_showBeers($allbeers);
   }
   else {
-    echo "<h3>No beers yet, add some!</h3>";
+    return "<h3>No beers yet, add some!</h3>";
   }
 }
 

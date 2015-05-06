@@ -1,12 +1,12 @@
 <?php
 
 function KingofCraft_listBeers() {
-  
+
   global $wpdb;
   $table_name = $wpdb->prefix . "kc_beer";
   $query = "SELECT * FROM $table_name";
   $allbeers = $wpdb->get_results($query);
-  
+
   if($allbeers){
     KingofCraft_showBeers($allbeers);
   }
@@ -31,10 +31,11 @@ function create_beer_table_header() {
   <div id="beererror"></div>
   <table class="beertable">
     <tr class="beertablerow">
+      <th>Picture</th>
       <th>Beer Information</th>
       <th>Description</th>
     </tr>
-    
+
 <?php
 }
 
@@ -50,15 +51,17 @@ function create_beer_table_row($beer) {
 ?>
 
   <tr class="beertablerow">
+  	<?php $source=$beer->beer_image; ?>
+  	<td><?php echo "<img src='$source'>";?></td>
     <td><?php echo $beer->beername . " <br>" .
                    $beer->beertype . " <br>" .
                    $beer->beerABV . "% <br>" .
-                   $beer->brewery 
+                   $beer->brewery
     ?></td>
-    
+
     <td><?php echo $beer->beer_description;?></td>
   </tr>
-  
+
 <?php
 }
   

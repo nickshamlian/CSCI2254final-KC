@@ -18,15 +18,6 @@ function KingofCraft_register_form() {
 <?php
 }
 
-function createmenu($name, $option) {
-  
-  echo "<select name = '$name'>";
-  foreach ($option as $opt) {
-    echo "<option value = '$opt'>$opt</option>";
-  }
-  echo "</select>";
-}
-
 add_filter('registration_errors', 'KingofCraft_registration_validate', 10, 3);
 
 function KingofCraft_registration_validate($errors, $sanitized_user_login, $user_email) {

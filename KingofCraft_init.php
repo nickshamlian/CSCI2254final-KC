@@ -53,7 +53,7 @@ include 'KingofCraft_addbeer.php';
 include 'KingofCraft_listbeers.php';
 include 'KingofCraft_getBars.php';
 include 'KingofCraft_getBrewery.php';
-
+include 'KingofCraft_6pack.php';
 
 /**
 * Shortcode functions

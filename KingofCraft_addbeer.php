@@ -5,7 +5,7 @@ function KingofCraft_addbeer(){
   if ($debug) echo "[KingofCraft_addbeer]";
   
   if(! is_user_logged_in()) {
-    echo "Sorry you must be logged in as a member to add a beer.<br>
+    echo "Sorry you must be logged in to add a beer.<br>
       <a href=". wp_login_url() . " title='Login'>Log in</a>";
     return;
   }
@@ -15,13 +15,8 @@ function KingofCraft_addbeer(){
   }
   
   $current_user = wp_get_current_user();
-  $user_role = is_user_member($current_user);
-  
-  if($user_role == 'guest') {
-    echo "Sorry you must be logged in as a member to add a beer.<br>
-      <a href=". wp_login_url() . " title='Login'>Log in</a>";
-    return;
-  }
+  $username = get_current_user_name($current_user);
+
   
   KingofCraft_display_addbeer();
 }

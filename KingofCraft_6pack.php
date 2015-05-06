@@ -52,7 +52,7 @@ function create_6pack_options_row($beer) {
   	<td><?php echo "<img src='$source'>";?>
   	    <form method="post">
         <input type="submit" name="addtoPack" value="Add to your pack!">
-        <input type="hidden" name="ID" value="<?php '$beerID'?>">
+        <input type="hidden" name="ID" value="<?php $beerID ?>">
         </form></td>
         
     <td><?php echo $beer->beername . " <br>" .

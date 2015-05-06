@@ -1,4 +1,18 @@
 <?php
+
+function KingofCraft_member() {
+  global $debug;
+  if ($debug) echo "[KingofCraft_member]";
+  
+  $current_user = wp_get_current_user();
+  $username = get_current_user_name($current_user);
+  echo "Hello $username, Here are all of the 6-Packs that you have created!"
+  
+  KingofCraft_6_pack_options();
+}
+
+add_shortcode('KingofCraft_member', 'KingofCraft_member');
+
 function KingofCraft_6pack_options() {
   global $wpdb;
   $table_name = $wpdb->prefix . "kc_beer";
@@ -42,4 +56,8 @@ function create_6pack_options_row($beer) {
   </tr>
 
 <?php
+}
+
+function KingofCraft_addtoCollection($current_user) {
+  
 }

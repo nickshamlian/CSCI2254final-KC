@@ -38,8 +38,8 @@ function KingofCraft_display_addbeer(){
 	</tr>
 
 	<tr>
-		<td><label for="beerType">Type:</label></td>
-		<td><?php createmenu("beerType", array("Lager", "Wheat Beer", "Mild Ale", "Stout", "Pale Ale", "Lambic")); ?></td>
+		<td><label for="beertype">Type:</label></td>
+		<td><?php createmenu("beertype", array("Lager", "Wheat Beer", "Mild Ale", "Stout", "Pale Ale", "Lambic")); ?></td>
 	</tr>
       
 	<tr>
@@ -74,7 +74,7 @@ function KingofCraft_handle_addbeer(){
   global $wpdb;
   
   $beername = $_POST['beername'];
-  $beerType = $_POST['beerType'];
+  $beerType = $_POST['beertype'];
   $beerABV = $_POST['beerABV'];
   $brewery = $_POST['brewery'];
   $beer_description = $_POST['beer_description'];
@@ -83,9 +83,9 @@ function KingofCraft_handle_addbeer(){
   $table_name = $wpdb->prefix . "kc_beer";
   $wpdb->query($wpdb->prepare(
     "INSERT INTO $table_name
-    (beername, beerType, beerABV, brewery, beer_image, beer_description) values (%s, %s, %f, %s, %s, %s)",
+    (beername, beertype, beerABV, brewery, beer_image, beer_description) values (%s, %s, %f, %s, %s, %s)",
     $beername,
-    $beerType,
+    $beertype,
     $beerABV,
     $brewery,
     $beer_image,

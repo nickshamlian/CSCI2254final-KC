@@ -29,8 +29,10 @@ function KingofCraft_showPacks($current_user) {
   $table_name=$wpdb->prefix . "kc_beer";
   $query = "SELECT * FROM $table_name WHERE beerID in ($beerIDs)";
   $allbeers = $wpdb->get_results($query);
-  KingofCraft_showBeers($allbeers);
+  KingofCraft_display_6Pack($allbeers);
+  
 }
+
 function KingofCraft_addtoPack($current_user) {
   
   KingofCraft_setUpList();
@@ -87,4 +89,13 @@ function create_6pack_options_row($beer) {
 
 function KingofCraft_handle_addtoPack($current_user) {
   add_user_meta($current_user->ID, 'beer', $_POST['ID']);
+}
+
+function KingofCraft_display_6Pack($allbeers) {
+  foreach($allbeers as $beer) {
+    $source=$beer->beer_image;
+    <tr>
+    <img src='$source'>
+    </tr>
+  }
 }

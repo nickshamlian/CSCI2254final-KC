@@ -15,7 +15,7 @@ add_shortcode('KingofCraft_member', 'KingofCraft_member');
 
 function KingofCraft_showPacks($current_user) {
   
-  $beerlist = get_user_meta($current->ID, 'beer' false);
+  $beerlist = get_user_meta($current->ID, 'beer', false);
   
   if (empty($beerlist)) {
     echo "<h3>You haven't made any 6-Packs yet. Add some!...<h3>";

@@ -31,7 +31,7 @@ function KingofCraft_showPacks($current_user) {
 }
 function KingofCraft_addtoPack($current_user) {
 
-  KingofCraft_setUpList();
+  KingofCraft_member_showBeers($allbeers);
   if (isset($_POST['addtoPack'])) {
     KingofCraft_handle_addtoPack($current_user);
   }

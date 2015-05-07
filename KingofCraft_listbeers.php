@@ -2,22 +2,27 @@
 
 function KingofCraft_listBeers() {
 
+  global $debug;
   global $wpdb;
+    
+  if ($debug) echo "[KingofCraft_listBeers]";
+  
   $table_name = $wpdb->prefix . "kc_beer";
   $query = "SELECT * FROM $table_name";
   $allbeers = $wpdb->get_results($query);
 
-  if($allbeers){
-    KingofCraft_showBeers($allbeers);
-  }
-  else {
+  if(! is_user_logged_in() && ($allbeers)) {
+    KingofCraft_showBeers_guest($allbeers);
+  } elseif(is_user_loggedin() && ($allbeers)) {
+    KingofCraft_showBeers_member($allbeers);
+  }  else {
     return "<h3>No beers yet, add some!</h3>";
   }
 }
 
 add_shortcode('KingofCraft_listBeers', 'KingofCraft_listBeers');
 
-function KingofCraft_showBeers($allbeers){
+function KingofCraft_showBeers_guest($allbeers){
   create_beer_table_header();
   foreach($allbeers as $beer) {
     create_beer_table_row($beer);

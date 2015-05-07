@@ -13,6 +13,23 @@ function KingofCraft_member() {
 
 add_shortcode('KingofCraft_member', 'KingofCraft_member');
 
+function KingofCraft_showPacks($current_user) {
+  
+  $beerlist = get_user_meta($current->ID, 'beer' false);
+  
+  if (empty($beerlist)) {
+    echo "<h3>You haven't made any 6-Packs yet. Add some!...<h3>";
+    return;
+  }
+  $beerIDs = implode(",", $beerlist);
+  
+  global $wpdb;
+  
+  $table_name=$wpdb->prefix . "kc_beer";
+  $query = "SELECT * FROM $table_name WHERE beerID in ($beerIDs)";
+  $allbeers = $wpdb->get_results($query);
+  KingofCraft_showBeers($allbeers);
+}
 function KingofCraft_addtoPack($current_user) {
   
   KingofCraft_setUpList();
@@ -52,7 +69,7 @@ function create_6pack_options_row($beer) {
   	<td><?php echo "<img src='$source'>";?>
   	    <form method="post">
         <input type="submit" name="addtoPack" value="Add to your pack!">
-        <input type="hidden" name="ID" value="<?php $beerID ?>">
+         <input type="hidden" name="ID" value= <?php echo "$beerID"?> >
         </form></td>
         
     <td><?php echo $beer->beername . " <br>" .

@@ -13,7 +13,7 @@ function KingofCraft_listBeers() {
 
   if(! is_user_logged_in() && ($allbeers)) {
     KingofCraft_showBeers_guest($allbeers);
-  } elseif(is_user_loggedin() && ($allbeers)) {
+  } elseif(is_user_logged_in() && ($allbeers)) {
     KingofCraft_showBeers_member($allbeers);
   }  else {
     return "<h3>No beers yet, add some!</h3>";

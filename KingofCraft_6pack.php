@@ -5,7 +5,10 @@ function KingofCraft_member() {
 
   $current_user = wp_get_current_user();
   $username = get_current_user_name($current_user);
-  echo "Hello $username, Here are all of the 6-Packs that you have created!";
+  if (! $username) {
+    $username = "guest";
+  }
+  echo "Hello $username, Here are all of the 6-Packs that you have created!<br>";
 
   KingofCraft_showPacks($current_user);
   KingofCraft_addtoPack($current_user);

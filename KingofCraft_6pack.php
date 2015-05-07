@@ -31,7 +31,11 @@ function KingofCraft_showPacks($current_user) {
 }
 function KingofCraft_addtoPack($current_user) {
 
-  KingofCraft_member_showBeers($allbeers);
+  $table_name=$wpdb->prefix . "kc_beer";
+  $query = "SELECT * FROM $table_name";
+  $allbeers = $wpdb->get_results($query);
+  
+  KingofCraft_showBeers_member($allbeers);
   if (isset($_POST['addtoPack'])) {
     KingofCraft_handle_addtoPack($current_user);
   }

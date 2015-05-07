@@ -8,7 +8,7 @@ function KingofCraft_register_form() {
   <p>
   
     <label for="firstname">First name</label>
-    <input type="text" name="firstname" id="firstname" class="input" size="25"/>
+    <input type="text" name="firstname" id="firstname" class="input" size="25"/><br>
     
   </p>
   
@@ -30,7 +30,6 @@ add_action('user_register', 'KingofCraft_user_register');
 function KingofCraft_user_register($user_id) {
   if(isset($_POST['netID'])) {
     update_user_meta($user_id, 'first_name', $_POST['firstname']);
-    update_user_meta($user_id, 'KingofCraft_role', $_POST['memtype']);
   }
 }
 
